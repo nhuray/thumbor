@@ -128,12 +128,14 @@ Config.define('STORES_CRYPTO_KEY_FOR_EACH_IMAGE', False, 'Indicates whether thum
 # FILE STORAGE OPTIONS
 Config.define('FILE_STORAGE_ROOT_PATH', join(tempfile.gettempdir(), 'thumbor', 'storage'), 'The root path where the File Storage will try to find images', 'File Storage')
 
-# PHOTO UPLOAD OPTIONS
+# PHOTO API / UPLOAD OPTIONS
 Config.define('MAX_SIZE', 0, "Max size in Kb for images uploaded to thumbor", 'Upload')
 Config.define('ENABLE_ORIGINAL_PHOTO_UPLOAD', False, 'Indicates whether thumbor should enable File uploads', 'Upload')
+Config.define('ENABLE_ORIGINAL_PHOTO_API', False, 'Indicates whether thumbor should enable photos Rest API', 'Upload')
 Config.define('ORIGINAL_PHOTO_STORAGE', 'thumbor.storages.file_storage', 'The type of storage to store uploaded images with', 'Upload')
 Config.define('ALLOW_ORIGINAL_PHOTO_DELETION', False, 'Indicates whether image deletion should be allowed', 'Upload')
 Config.define('ALLOW_ORIGINAL_PHOTO_PUTTING', False, 'Indicates whether image overwrite should be allowed', 'Upload')
+
 
 # MONGO STORAGE OPTIONS
 Config.define('MONGO_STORAGE_SERVER_HOST', 'localhost', 'MongoDB storage server host', 'MongoDB Storage')

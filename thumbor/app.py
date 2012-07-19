@@ -14,6 +14,7 @@ import tornado.ioloop
 from thumbor.handlers.image import ImageProcessHandler
 from thumbor.handlers.healthcheck import HealthcheckHandler
 from thumbor.handlers.upload import UploadHandler
+from thumbor.handlers.api import RestfulAPIHandler
 from thumbor.url import Url
 
 class ThumborServiceApp(tornado.web.Application):
@@ -28,6 +29,11 @@ class ThumborServiceApp(tornado.web.Application):
         if context.config.ENABLE_ORIGINAL_PHOTO_UPLOAD:
             handlers.append(
                 (r'/upload', UploadHandler, { 'context': context })
+            )
+
+        if context.config.ENABLE_ORIGINAL_PHOTO_API:
+            handlers.append(
+                (r'/api\/?(.*)', RestfulAPIHandler, { 'context': context })
             )
 
         handlers.append(
